@@ -4,10 +4,14 @@ public class ChessApp {
 
     public static void main(String[] args) {
 
-        Board board= new Board();
-        board.setFigure(1,1, new Pawn(FigureColor.BLACK));
-        board.setFigure(2,2, new Pawn(FigureColor.BLACK));
-        board.setFigure(5,5, new Queen(FigureColor.WHITE));
+        Board board = new Board();
+        board.initBoard();
         System.out.println(board);
+
+        while (true) {
+            Move move = UserDialogs.getMove();
+            System.out.println(board.move(move.getCol1(), move.getRow1(), move.getCol2(), move.getRow2()));
+            System.out.println(board);
+        }
     }
 }
